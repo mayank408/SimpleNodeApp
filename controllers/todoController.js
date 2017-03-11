@@ -1,5 +1,19 @@
 var bodyParser = require('body-parser')
+var mongoose = require('mongoose')
 
+
+mongoose.connect('mongodb://test:test@ds161960.mlab.com:61960/todos')
+
+var todoschema = new mongoose.Schema({
+	item: String
+})
+
+var Todo = mongoose.model('Todo',todoschema)
+
+var itemOne = Todo({item:'Buy flowers'}).save(function(err){
+	if(err) throw err;
+	console.log('item saved');
+})
 
 var data = [{item: 'get milk'} ,{item:'walk dog'} , {item:'kick some codin'}]
 var url = bodyParser.urlencoded({extended: false})
