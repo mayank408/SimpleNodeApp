@@ -10,7 +10,6 @@ var todoschema = new mongoose.Schema({
 
 var Todo = mongoose.model('Todo',todoschema)
 
-//var data = [{item: 'get milk'} ,{item:'walk dog'} , {item:'kick some codin'}]
 var url = bodyParser.urlencoded({extended: false})
 
 module.exports = function(app){
@@ -29,6 +28,8 @@ module.exports = function(app){
 
 		var newTodo = Todo(req.body).save(function(err,data){
 			if(err) throw err
+				console.log(data)
+			if(data.item != '')
 				res.json(data);
 		})
 		console.log('request made')
@@ -42,7 +43,6 @@ module.exports = function(app){
 			if(err) throw err
 				res.json(data);
 		})
-
 		})		
 
 
