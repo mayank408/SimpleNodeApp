@@ -26,6 +26,7 @@ module.exports = function(app){
 
 	app.post('/todo' , url, function(req,res){
 
+		if(req.body.item != '')
 		var newTodo = Todo(req.body).save(function(err,data){
 			if(err) throw err
 				console.log(data)
