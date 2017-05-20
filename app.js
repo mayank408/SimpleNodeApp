@@ -6,16 +6,16 @@ var app = express();
 app.set('view engine', 'ejs')
 app.use(express.static('./public'))
 
-app.get('/.well-known/assetlinks.json',function(req,res)
+app.get('/hello',function(req,res)
 {
 res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify([{
   "relation": ["delegate_permission/common.handle_all_urls"],
   "target": {
     "namespace": "android_app",
-    "package_name": "com.example.mohitkumar.airtelhack",
+    "package_name": "com.example.navendu.myapplication",
     "sha256_cert_fingerprints":
-    ["BF:71:A6:B5:E7:38:CC:41:0A:3A:0C:E1:1F:CD:E0:06:AD:CA:8A:3D:35:9E:DD:BD:17:A9:BD:31:E3:56:58:12"]
+    ["60:6E:4A:F2:10:82:A7:7E:68:58:6B:04:84:1C:90:5A:50:61:D9:A3:D1:DF:3D:14:56:30:F2:A6:FB:63:9C:F2"]
   }
 }]));
 })
