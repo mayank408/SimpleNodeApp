@@ -6,7 +6,7 @@ var app = express();
 app.set('view engine', 'ejs')
 app.use(express.static('./public'))
 
-app.get('/hello',function(req,res)
+app.get('/.well-known/assetlinks.json',function(req,res)
 {
 res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify([{
